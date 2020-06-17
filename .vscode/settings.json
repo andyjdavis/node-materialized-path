@@ -1,0 +1,38 @@
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/*.map": {
+            "when": "$(basename)"
+        },
+        "**/*.js": {
+            "when": "$(basename).ts"
+        },
+        "**/*?.js": {
+            "when": "$(basename).tsx"
+        }
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.map": true,
+        "**/dist": true,
+        "**/dist-test": true
+    },
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnSave": true,
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#00695C",
+        "titleBar.activeForeground": "#fff",
+        "titleBar.inactiveBackground": "#004D40",
+        "titleBar.inactiveForeground": "#cccccc",
+        "activityBar.activeBackground": "#00695C",
+        "activityBar.foreground": "#fff"
+    }
+}
