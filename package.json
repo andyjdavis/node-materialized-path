@@ -1,18 +1,18 @@
 {
-  "name": "node-materialized-path",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "build": "tsc",
-    "test": "yarn jest",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.0",
-    "jest": "^26.0.1",
-    "prettier": "^2.0.5",
-    "ts-jest": "^26.1.0",
-    "typescript": "^3.9.5"
-  }
+    "name": "node-materialized-path",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc",
+        "test": "yarn build && yarn jest",
+        "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.0",
+        "jest": "^26.0.1",
+        "prettier": "^2.0.5",
+        "ts-jest": "^26.1.0",
+        "typescript": "^3.9.5"
+    }
 }

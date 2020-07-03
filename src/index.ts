@@ -1,6 +1,6 @@
 export interface HierarchyNode {
-    id: number
-    parentId: number | null
+    id: number | string
+    parentId: number | string | null
     path: string
 }
 
@@ -9,11 +9,11 @@ export function materialize(input: HierarchyNode[]): HierarchyNode[] {
     let newNode: HierarchyNode | null = null
     let parent: HierarchyNode | null = null
 
-    const findResolved = (id: number) => {
+    const findResolved = (id: number | string) => {
         return output.find((toCheck) => toCheck.id == id)
     }
 
-    const findUnresolved = (id: number) => {
+    const findUnresolved = (id: number | string) => {
         return input.find((toCheck) => toCheck.id == id) || null
     }
 
@@ -29,7 +29,7 @@ export function materialize(input: HierarchyNode[]): HierarchyNode[] {
             parent = findUnresolved(newNode.parentId)
             if (!parent) {
                 throw new Error(
-                    `Couldnt find parent. node id: ${n.id} parentId: ${newNode.parentId}`,
+                    `Couldnt find parent. parentId: ${newNode.parentId} node id: ${n.id}`,
                 )
             }
             parent = resolveNode(parent)

@@ -63,3 +63,59 @@ test('materialize tall hierarchy', () => {
     ]
     expect(materialize(input)).toEqual(output)
 })
+
+test('materialize tall hierarchy with string IDs', () => {
+    const input: HierarchyNode[] = [
+        {
+            id: 'animals',
+            parentId: null,
+            path: '',
+        },
+        {
+            id: 'aquatic animals',
+            parentId: 'animals',
+            path: '',
+        },
+        {
+            id: 'sharks',
+            parentId: 'aquatic animals',
+            path: '',
+        },
+    ]
+    const output: HierarchyNode[] = [
+        {
+            id: 'animals',
+            parentId: null,
+            path: '',
+        },
+        {
+            id: 'aquatic animals',
+            parentId: 'animals',
+            path: 'animals',
+        },
+        {
+            id: 'sharks',
+            parentId: 'aquatic animals',
+            path: 'animals,aquatic animals',
+        },
+    ]
+    expect(materialize(input)).toEqual(output)
+})
+
+test('throw an error if an invalid parent ID is supplied', () => {
+    const input: HierarchyNode[] = [
+        {
+            id: 'animals',
+            parentId: null,
+            path: '',
+        },
+        {
+            id: 'aquatic animals',
+            parentId: 'rocks',
+            path: '',
+        },
+    ]
+    expect(() => materialize(input)).toThrowError(
+        'Couldnt find parent. parentId: rocks node id: aquatic animals',
+    )
+})
