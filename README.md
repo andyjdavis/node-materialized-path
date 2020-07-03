@@ -8,8 +8,8 @@ This is the node type definition
 
 ```
 export interface HierarchyNode {
-    id: number
-    parentId: number | null
+    id: number | string
+    parentId: number | string | null
     path: string
 }
 ```
@@ -60,4 +60,4 @@ const output: HierarchyNode[] = [
     ]
 ```
 
-See src/index.test.ts for a thorough examination of this module's behaviour.
+See src/index.test.ts for a more thorough examination of this module's behaviour.
