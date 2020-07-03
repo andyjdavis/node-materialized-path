@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "author": "Andrew Davis <andrew.affinity@gmail.com>",
     "scripts": {
         "build": "tsc",
         "test": "yarn build && yarn jest",
